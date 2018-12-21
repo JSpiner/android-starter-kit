@@ -39,3 +39,18 @@ $ git submodule update --remote
 - Base View Component
   - Activity, Fragment, View
 - Databinding
+
+### will support
+- Firebase Managing
+  - FCM, Crashlytics, Analytics
+- Image Util
+- Network Util
+- Animation Util(using [AnimationBuilder](https://github.com/JSpiner/AnimationBuilder))
+- jitpack deploy
+- load save instance state
+- Simple views
+  - Loading dialog, One button dialog, Two button dialog, Text dialog
+- font managing
+- Encrypt Util
+- Permission Util
+
