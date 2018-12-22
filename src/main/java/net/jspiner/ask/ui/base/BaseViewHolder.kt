@@ -9,18 +9,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import net.jspiner.ask.util.initLazy
 
-abstract class BaseViewHolder<B : ViewDataBinding, D>(parent: ViewGroup, @LayoutRes layoutResId: Int) :
+abstract class BaseViewHolder<Binding : ViewDataBinding, Data>(parent: ViewGroup, @LayoutRes layoutResId: Int) :
     RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutResId, parent, false)) {
 
-    protected val binding: B by lazy { DataBindingUtil.bind<B>(itemView)!! }
-    protected var lastData: D? = null
+    protected val binding: Binding by lazy { DataBindingUtil.bind<Binding>(itemView)!! }
+    protected var lastData: Data? = null
 
     init {
         binding.initLazy()
     }
 
     @CallSuper
-    open fun setData(data: D) {
+    open fun setData(data: Data) {
         lastData = data
     }
 
