@@ -20,7 +20,7 @@ abstract class BaseViewHolder<B : ViewDataBinding, D>(parent: ViewGroup, @Layout
     }
 
     @CallSuper
-    fun setData(data: D) {
+    open fun setData(data: D) {
         lastData = data
     }
 
