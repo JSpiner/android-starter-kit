@@ -1,5 +1,6 @@
 package net.jspiner.ask.ui.base
 
+import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
@@ -40,5 +41,10 @@ abstract class BaseFragment<Binding : ViewDataBinding, ViewModel : BaseViewModel
 
     protected fun <T> bindLifecycle(): LifecycleTransformer<T> {
         return LifecycleTransformer(lifecycleSubject)
+    }
+
+    //편의를 위해 non-null 로 처리했지만, destroy 된 상황에서 null 일 가능성이 있음
+    override fun getContext(): Context {
+        return super.getContext()!!
     }
 }
