@@ -16,7 +16,7 @@ object Prefer {
 
     val sharedPreferences: SharedPreferences?
         @Synchronized get() {
-            if (::preferences.isInitialized) {
+            if (::preferences.isInitialized.not()) {
                 preferences = context!!.getSharedPreferences(fileName, Context.MODE_PRIVATE)
             }
             return preferences
