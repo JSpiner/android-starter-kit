@@ -8,7 +8,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import io.reactivex.subjects.CompletableSubject
-import net.jspiner.ask.util.LifecycleTransformer
 import net.jspiner.ask.util.initLazy
 
 abstract class BaseView<Binding : ViewDataBinding, ViewModel : BaseViewModel> @JvmOverloads constructor(
@@ -17,7 +16,7 @@ abstract class BaseView<Binding : ViewDataBinding, ViewModel : BaseViewModel> @J
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val lifecycleSubject: CompletableSubject by lazy { CompletableSubject.create() }
+    protected val lifecycle: CompletableSubject by lazy { CompletableSubject.create() }
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -43,10 +42,7 @@ abstract class BaseView<Binding : ViewDataBinding, ViewModel : BaseViewModel> @J
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        lifecycleSubject.onComplete()
+        lifecycle.onComplete()
     }
 
-    protected fun <T> bindLifecycle(): LifecycleTransformer<T> {
-        return LifecycleTransformer(lifecycleSubject)
-    }
 }

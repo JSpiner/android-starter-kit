@@ -12,7 +12,6 @@ import android.view.View
 import android.view.WindowManager
 import io.reactivex.subjects.CompletableSubject
 import net.jspiner.ask.ui.common.LoadingDialog
-import net.jspiner.ask.util.LifecycleTransformer
 import net.jspiner.ask.util.initLazy
 
 abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel> : AppCompatActivity() {
@@ -27,7 +26,7 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel
     val binding: Binding by lazy { DataBindingUtil.setContentView(this, getLayoutId()) as Binding }
     val viewModel: ViewModel by lazy { createViewModel() }
 
-    private val lifecycleSubject: CompletableSubject by lazy { CompletableSubject.create() }
+    protected val lifecycle: CompletableSubject by lazy { CompletableSubject.create() }
 
     private val loadingDialog by lazy { LoadingDialog(this) }
 
@@ -45,13 +44,9 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel
         }
     }
 
-    protected fun <T> bindLifecycle(): LifecycleTransformer<T> {
-        return LifecycleTransformer(lifecycleSubject)
-    }
-
     override fun onDestroy() {
         super.onDestroy()
-        lifecycleSubject.onComplete()
+        lifecycle.onComplete()
         viewModel.onDestroy()
     }
 
