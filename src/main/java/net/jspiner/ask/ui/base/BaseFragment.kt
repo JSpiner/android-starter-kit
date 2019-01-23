@@ -17,7 +17,7 @@ abstract class BaseFragment<Binding : ViewDataBinding, ViewModel : BaseViewModel
     abstract fun getLayoutId(): Int
 
     protected lateinit var binding: Binding
-    protected val viewModel: ViewModel by lazy { (activity as BaseActivity<*, ViewModel>).viewModel }
+    protected open val viewModel: ViewModel by lazy { (activity as BaseActivity<*, ViewModel>).viewModel }
 
     protected val lifecycle: CompletableSubject by lazy { CompletableSubject.create() }
 
