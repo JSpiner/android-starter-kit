@@ -7,7 +7,7 @@ import java.util.ArrayList
 
 abstract class BaseAdapter<D> : RecyclerView.Adapter<BaseViewHolder<ViewDataBinding, D>>() {
 
-    private val dataList: ArrayList<D> = ArrayList()
+    protected val dataList: ArrayList<D> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ViewDataBinding, D> {
         return onCreateViewHolderInternal(parent, viewType) as BaseViewHolder<ViewDataBinding, D>
