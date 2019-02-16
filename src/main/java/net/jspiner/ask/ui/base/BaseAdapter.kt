@@ -19,7 +19,7 @@ abstract class BaseAdapter<D> : RecyclerView.Adapter<BaseViewHolder<ViewDataBind
         return dataList.size
     }
 
-    fun addAll(itemList: ArrayList<D>) {
+    fun addAll(itemList: List<D>) {
         val prevSize = dataList.size
         dataList.addAll(itemList)
         notifyItemRangeInserted(prevSize, itemList.size)
