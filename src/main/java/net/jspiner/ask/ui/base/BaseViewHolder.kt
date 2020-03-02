@@ -1,12 +1,12 @@
 package net.jspiner.ask.ui.base
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.annotation.CallSuper
-import android.support.annotation.LayoutRes
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import net.jspiner.ask.util.initLazy
 
 abstract class BaseViewHolder<Binding : ViewDataBinding, Data>(parent: ViewGroup, @LayoutRes layoutResId: Int) :

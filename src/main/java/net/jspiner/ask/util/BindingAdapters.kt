@@ -1,10 +1,10 @@
 package net.jspiner.ask.util
 
-import android.databinding.BindingAdapter
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 
-object BindingAdapter {
+object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("src")

@@ -1,9 +1,9 @@
 package net.jspiner.ask.ui.base
 
-import android.databinding.ViewDataBinding
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
+import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 
 abstract class BasePagerAdapter(pager: ViewPager, fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {

@@ -1,12 +1,12 @@
 package net.jspiner.ask.ui.base
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.annotation.LayoutRes
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import io.reactivex.subjects.CompletableSubject
 import net.jspiner.ask.util.initLazy
 

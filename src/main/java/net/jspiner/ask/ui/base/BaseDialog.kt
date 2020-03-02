@@ -1,13 +1,13 @@
 package net.jspiner.ask.ui.base
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.annotation.CallSuper
-import android.support.annotation.LayoutRes
-import android.support.v7.app.AlertDialog
 import android.view.WindowManager
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AlertDialog
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 
 abstract class BaseDialog<Binding : ViewDataBinding>(context: Context) : AlertDialog(context) {
 

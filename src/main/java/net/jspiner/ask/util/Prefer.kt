@@ -48,11 +48,11 @@ object Prefer {
         val returnValue: Any
         returnValue = when (defaultValue) {
             is Int -> preference!!.getInt(key, (defaultValue as Int).toInt())
-            is String -> preference!!.getString(key, defaultValue as String)
+            is String -> preference!!.getString(key, defaultValue as String)!!
             is Boolean -> preference!!.getBoolean(key, defaultValue as Boolean)
             is Float -> preference!!.getFloat(key, defaultValue as Float)
             is Long -> preference!!.getLong(key, defaultValue as Long)
-            else -> preference!!.getString(key, defaultValue as String)
+            else -> preference!!.getString(key, defaultValue as String)!!
         }
 
         return returnValue as T

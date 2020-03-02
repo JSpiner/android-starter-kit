@@ -2,7 +2,7 @@ package net.jspiner.ask.ui.common
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import net.jspiner.ask.R
 
 class LoadingDialog(context: Context) : AlertDialog(context) {

@@ -1,8 +1,8 @@
 package net.jspiner.ask.ui.base;
 
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
 abstract class BaseAdapter<D> : RecyclerView.Adapter<BaseViewHolder<ViewDataBinding, D>>() {

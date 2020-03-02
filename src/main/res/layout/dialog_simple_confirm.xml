@@ -25,7 +25,7 @@
             android:textSize="15dp"
             tools:text="콘텐츠 영역 입니다. 두세줄까지 들어 갈 수 있습니다." />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

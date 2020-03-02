@@ -1,15 +1,15 @@
 package net.jspiner.ask.ui.base
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.annotation.CallSuper
-import android.support.annotation.ColorRes
-import android.support.annotation.LayoutRes
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
+import androidx.annotation.CallSuper
+import androidx.annotation.ColorRes
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import io.reactivex.subjects.CompletableSubject
 import net.jspiner.ask.ui.common.LoadingDialog
 import net.jspiner.ask.util.initLazy
@@ -47,7 +47,6 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel
     override fun onDestroy() {
         super.onDestroy()
         lifecycle.onComplete()
-        viewModel.onDestroy()
     }
 
     final override fun onSaveInstanceState(outState: Bundle) {
