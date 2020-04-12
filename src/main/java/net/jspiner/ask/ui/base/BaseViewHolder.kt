@@ -1,5 +1,6 @@
 package net.jspiner.ask.ui.base
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
@@ -14,6 +15,7 @@ abstract class BaseViewHolder<Binding : ViewDataBinding, Data>(parent: ViewGroup
 
     protected val binding: Binding by lazy { DataBindingUtil.bind<Binding>(itemView)!! }
     protected var lastData: Data? = null
+    protected val context by lazy { binding.root.context }
 
     init {
         binding.initLazy()
