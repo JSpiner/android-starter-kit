@@ -3,6 +3,7 @@ package net.jspiner.ask.ui.base
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.annotation.CallSuper
 import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import io.reactivex.subjects.CompletableSubject
 import net.jspiner.ask.ui.common.LoadingDialog
 import net.jspiner.ask.util.initLazy
@@ -42,6 +44,10 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel
             intent.extras != null -> loadState(intent.extras!!)
             else -> loadState(Bundle.EMPTY)
         }
+
+        viewModel.toast.observe(this, Observer {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        })
     }
 
     override fun onDestroy() {
