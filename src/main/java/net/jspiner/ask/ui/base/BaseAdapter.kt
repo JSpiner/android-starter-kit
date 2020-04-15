@@ -28,7 +28,7 @@ abstract class BaseAdapter<D : Diffable> :
         return dataList.size
     }
 
-    fun update(newList: List<D>) {
+    open fun update(newList: List<D>) {
         val diffResult = DiffUtil.calculateDiff(BaseDiffCallback(dataList, newList))
         dataList.clear()
         dataList.addAll(newList)
