@@ -1,4 +1,4 @@
-package net.jspiner.ask.ui.base;
+package net.jspiner.ask.ui.base
 
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
@@ -10,6 +10,7 @@ abstract class BaseAdapter<D : Diffable> :
     RecyclerView.Adapter<BaseViewHolder<ViewDataBinding, D>>() {
 
     protected val dataList: ArrayList<D> = ArrayList()
+    protected var onDataChanged = { _: List<D> -> }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -36,6 +37,11 @@ abstract class BaseAdapter<D : Diffable> :
 
     fun addAll(itemList: List<D>) {
         update(dataList.toMutableList().plus(itemList))
+        onDataChanged(dataList)
+    }
+
+    fun setOnDataChangeListener(onDataChanged: (List<D>) -> Unit) {
+        this.onDataChanged = onDataChanged
     }
 
     fun clear() {
