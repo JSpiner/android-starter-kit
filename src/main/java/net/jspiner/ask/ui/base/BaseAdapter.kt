@@ -33,11 +33,11 @@ abstract class BaseAdapter<D : Diffable> :
         dataList.clear()
         dataList.addAll(newList)
         diffResult.dispatchUpdatesTo(this)
+        onDataChanged(dataList)
     }
 
     fun addAll(itemList: List<D>) {
         update(dataList.toMutableList().plus(itemList))
-        onDataChanged(dataList)
     }
 
     fun setOnDataChangeListener(onDataChanged: (List<D>) -> Unit) {
