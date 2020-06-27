@@ -36,14 +36,14 @@ abstract class BaseActivity<Binding : ViewDataBinding, ViewModel : BaseViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.initLazy()
-        viewModel.initLazy()
-
         when {
             savedInstanceState != null -> loadState(savedInstanceState)
             intent.extras != null -> loadState(intent.extras!!)
             else -> loadState(Bundle.EMPTY)
         }
+
+        binding.initLazy()
+        viewModel.initLazy()
 
         viewModel.toast.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
